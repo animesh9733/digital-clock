@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>digital clock</title>
+    <style>
+      *{
+        padding: 0;
+        margin: 0;
+      }
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: black;
+        color: white;
+      }
+        .container{
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left: 50%;
+            width: 300px;
+           
+           
+        }
+        .time{
+            display: flex;
+        }
+        h1{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 id="date">bgfhfjghykfcl,fdgh</h2>
+      <div class="time">
+        <h1 id="clock"></h1>
+      
+      </div>
+       
+    </div>
+
+    <script>
+        let time=new Date();
+        let day=time.getDay();
+        let month=time.getMonth();
+        let tic=new Audio('tick.mp3');
+       
+        if(day<10){
+         day='0'+day;
+        }
+        if(month<10){
+         month='0'+month;
+        }
+          document.getElementById("date").innerHTML=day+":"+month+":"+time.getFullYear();
+          setInterval(show,1000)
+        function show(){
+          time=new Date();
+          let hours=time.getHours();
+        let minute=time.getMinutes();
+      
+        let second=time.getSeconds();
+        if(hours<10){
+         hours='0'+day;
+        }
+        if(minute<10){
+         minute='0'+minute;
+        }
+        if(second<10){
+         second='0'+second;
+        }
+
+          document.getElementById("clock").innerHTML=hours+":"+minute+":"+second;
+          tic.play();
+        }
+       
+       
+       
+    </script>
+    
+</body>
+</html>
